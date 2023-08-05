@@ -11,12 +11,12 @@ public class Player : MonoBehaviour
     [SerializeField] private Rigidbody2D rBody;
 
     [Header("Related Objects")]
-    [SerializeField] private GridManager gridManager;
+    [SerializeField] private List<Transform> spawnPoints;
     
     private void Start()
     {
-        gridManager = FindObjectOfType<GridManager>();
-        transform.position = gridManager.GetCenterPosition();
+        // TODO Assign players to spawn points
+        transform.position = spawnPoints[0].position;
     }
 
     private void FixedUpdate()
