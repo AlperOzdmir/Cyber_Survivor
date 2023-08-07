@@ -7,8 +7,9 @@ public class Mob : MonoBehaviour
 {
     [SerializeField] private float health;
     [SerializeField] private float damage;
+    [SerializeField] private float attackSpeed;
     [SerializeField] private float movementSpeed;
-
+    
     private Player player;
     private List<GameObject> players;
     private MobSpawner mobSpawner;
@@ -30,9 +31,9 @@ public class Mob : MonoBehaviour
         {
             return;
         }
-        foreach (var player in players)
+        foreach (var tempPlayer in players)
         {
-            playerPosition = player.transform.position;
+            playerPosition = tempPlayer.transform.position;
             distanceToPlayer = (transform.position - playerPosition).magnitude;
             if (distanceToPlayer < shortestDistance)
             {
@@ -54,7 +55,7 @@ public class Mob : MonoBehaviour
     
     private void Attack()
     {
-        if (player.GetHealth() <= damage)
+        if (player.health <= damage)
         {
             players.Remove(player.gameObject);
         }

@@ -4,7 +4,7 @@ using UnityEngine;
 public class MobSpawner : MonoBehaviour
 {
     [SerializeField] private List<GameObject> mobs;
-    [SerializeField] private float spawnPerSecond;
+    [SerializeField] private float spawnSpeed;
 
     // TODO Can be optimized later
     private List<GameObject> playersList = new List<GameObject>();
@@ -14,7 +14,7 @@ public class MobSpawner : MonoBehaviour
     private void Start()
     {
         var players = GameObject.FindGameObjectsWithTag("Player");
-        timeToSpawn = Time.time;
+        timeToSpawn = 1f / spawnSpeed;
         foreach (var player in players)
         {
             playersList.Add(player);
@@ -23,10 +23,11 @@ public class MobSpawner : MonoBehaviour
     
     private void FixedUpdate()
     {
-        if (timeToSpawn >= Time.time)
+        timeToSpawn -= Time.deltaTime;
+        if (timeToSpawn <= 0)
         {
             SpawnMob();
-            timeToSpawn = Time.time + (1 / spawnPerSecond);
+            timeToSpawn = 1f / spawnSpeed;
         }
     }
 

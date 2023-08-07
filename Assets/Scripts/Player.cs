@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private float health = 100f;
+    [HideInInspector]
+    private float maxHealth = 100f;
+    public float health;
     private float damage = 1f;
     private float attackSpeed = 1f;
     private float cooldownReduction = 0f;
@@ -18,11 +20,13 @@ public class Player : MonoBehaviour
 
     [Header("Related Objects")]
     [SerializeField] private List<Transform> spawnPoints;
+    [SerializeField] private StatusBar healthBar;
     
     private void Start()
     {
         // TODO Assign players to spawn points - online feature 
         transform.position = spawnPoints[0].position;
+        health = maxHealth;
     }
 
     private void FixedUpdate()
@@ -42,6 +46,7 @@ public class Player : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+        healthBar.UpdateBar(health, maxHealth);
         if (health <= 0)
         {
             Die();
@@ -54,8 +59,4 @@ public class Player : MonoBehaviour
         Destroy(gameObject);
     }
     
-    public float GetHealth()
-    {
-        return health;
-    }
 }
