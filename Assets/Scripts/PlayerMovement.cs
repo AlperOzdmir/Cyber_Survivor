@@ -3,35 +3,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
-    [HideInInspector]
-    private float maxHealth = 100f;
-    public float health;
-    private float damage = 1f;
-    private float attackSpeed = 1f;
-    private float cooldownReduction = 0f;
-    private float movementSpeed = 3f;
-
     [Header("Movement")]
+    [SerializeField] private float movementSpeed;
     [SerializeField] private FixedJoystick joystick;
     [SerializeField] private Rigidbody2D rBody;
     [SerializeField] private CapsuleCollider2D collider;
 
     [Header("Related Objects")]
     [SerializeField] private List<Transform> spawnPoints;
-    [SerializeField] private StatusBar healthBar;
+    
+    [HideInInspector]
+    public Vector2 movementDirection = Vector2.zero;
     
     private void Start()
     {
-        // TODO Assign players to spawn points - online feature 
+        // TODO Assign players to spawn points - online feature
         transform.position = spawnPoints[0].position;
-        health = maxHealth;
     }
 
     private void FixedUpdate()
     {
         rBody.velocity = new Vector2(joystick.Horizontal * movementSpeed, joystick.Vertical * movementSpeed);
+        if (rBody.velocity.x != 0 || rBody.velocity.y != 0)
+        {
+            movementDirection = rBody.velocity;
+        }
     }
     
     // Will be used for area happenings (earthquake etc.)
@@ -42,21 +40,4 @@ public class Player : MonoBehaviour
         Debug.Log(playersTilePosition);
         return playersTilePosition;
     }
-    
-    public void TakeDamage(float damage)
-    {
-        health -= damage;
-        healthBar.UpdateBar(health, maxHealth);
-        if (health <= 0)
-        {
-            Die();
-        }
-    }
-    
-    private void Die()
-    {
-        collider.enabled = false;
-        Destroy(gameObject);
-    }
-    
 }

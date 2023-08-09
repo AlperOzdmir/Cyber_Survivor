@@ -10,7 +10,7 @@ public class Mob : MonoBehaviour
     [SerializeField] private float attackSpeed;
     [SerializeField] private float movementSpeed;
     
-    private Player player;
+    private PlayerCombat player;
     private List<GameObject> players;
     private MobSpawner mobSpawner;
     
@@ -48,7 +48,7 @@ public class Mob : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            player = other.gameObject.GetComponent<Player>();
+            player = other.gameObject.GetComponent<PlayerCombat>();
             Attack();
         }
     }
