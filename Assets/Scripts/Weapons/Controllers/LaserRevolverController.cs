@@ -12,7 +12,7 @@ namespace Weapons.Controllers
          protected override void Attack()
          {
              base.Attack();
-             var laser = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+             var laser = Instantiate(weaponData.projectilePrefab, transform.position, Quaternion.identity);
              laser.GetComponent<LaserRevolverBehaviour>().CheckDirection(PlayerMovement.movementDirection);
          }
     }

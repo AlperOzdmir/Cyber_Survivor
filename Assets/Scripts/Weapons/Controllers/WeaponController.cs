@@ -1,3 +1,4 @@
+using Player;
 using UnityEngine;
 
 namespace Weapons.Controllers
@@ -5,21 +6,15 @@ namespace Weapons.Controllers
     public class WeaponController : MonoBehaviour
     {
         [Header("Weapon Stats")]
-        [SerializeField] protected float damage;
-        [SerializeField] protected float attackSpeed;
-        [SerializeField] protected float armorPenetration;
-        [SerializeField] protected bool isMelee;
+        [SerializeField] protected WeaponDataSO weaponData;
         
-        [Header("Projectile Related")]
-        [SerializeField] protected GameObject projectilePrefab;
-    
         protected PlayerMovement PlayerMovement;
         private Vector3 direction;
         private float timeToAttack;
     
         protected virtual void Start()
         {
-            timeToAttack = 1f / attackSpeed;
+            timeToAttack = 1f / weaponData.attackSpeed;
             PlayerMovement = GetComponentInParent<PlayerMovement>();
             if (PlayerMovement == null)
             {
@@ -33,13 +28,13 @@ namespace Weapons.Controllers
             if (timeToAttack <= 0)
             {
                 Attack();
-                timeToAttack = 1f / attackSpeed;
+                timeToAttack = 1f / weaponData.attackSpeed;
             }
         }
 
         protected virtual void Attack()
         {
-            timeToAttack = 1f / attackSpeed;
+            timeToAttack = 1f / weaponData.attackSpeed;
         }
     }
 }

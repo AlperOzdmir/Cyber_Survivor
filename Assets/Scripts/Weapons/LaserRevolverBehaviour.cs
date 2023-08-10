@@ -1,18 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Weapons;
+using Weapons.Controllers;
 
-public class LaserRevolverBehaviour : ProjectileBehaviour
+namespace Weapons
 {
-    protected override void Start()
+    public class LaserRevolverBehaviour : ProjectileBehaviour
     {
-        base.Start();
-    }
+        protected override void Start()
+        {
+            base.Start();
+        }
 
-    // Update is called once per frame
-    private void FixedUpdate()
-    {
-        transform.position += Direction * (projectileSpeed * Time.deltaTime);
+        // Update is called once per frame
+        private void FixedUpdate()
+        {
+            transform.position += Direction * (weaponData.projectileSpeed * Time.deltaTime);
+        }
+        
+        protected override void OnTriggerEnter2D(Collider2D other)
+        {
+            base.OnTriggerEnter2D(other);
+            if (other.gameObject.CompareTag("Mob"))
+            {
+                Destroy(gameObject);
+            }
+            // Might add some animations, explosions, etc.
+        }
     }
 }

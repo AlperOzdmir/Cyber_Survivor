@@ -1080,7 +1080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fdb08992a48ec34d9c82ae165e5396c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 3
+  movementSpeed: 2
   joystick: {fileID: 2133970056}
   rBody: {fileID: 933354822}
   collider: {fileID: 933354821}
@@ -1823,11 +1823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41807a5e43fd36a49a734aef5b776c70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  attackSpeed: 1
-  armorPenetration: 0
-  isMelee: 0
-  projectilePrefab: {fileID: 3354439074668917584, guid: 005ce0a66c1c0954dbdb931b1d2c3189, type: 3}
+  weaponData: {fileID: 11400000, guid: fef65ab72b7f91742a08ff8a14932498, type: 2}
 --- !u!1 &2084037668
 GameObject:
   m_ObjectHideFlags: 0
