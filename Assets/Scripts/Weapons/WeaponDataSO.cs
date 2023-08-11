@@ -15,6 +15,7 @@ namespace Weapons
         [Header("Projectile Related")]
         public GameObject projectilePrefab;
         public float projectileSpeed;
+        public float projectileRange;
         public float projectileLifetime;
     }
 }

@@ -66,7 +66,6 @@ namespace Mobs
         
         public void TakeDamage(float damage)
         {
-            Debug.Log("Mob took " + damage + " damage!");
             currentHealth -= damage;
             if (currentHealth <= 0)
             {

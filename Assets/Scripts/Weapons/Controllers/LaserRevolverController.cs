@@ -1,9 +1,12 @@
 using UnityEngine;
+using Vector2 = System.Numerics.Vector2;
 
 namespace Weapons.Controllers
 {
     public class LaserRevolverController : WeaponController
     {
+        [SerializeField] private LayerMask mobLayerMask;
+        
          protected override void Start()
         {
             base.Start();
@@ -12,8 +15,13 @@ namespace Weapons.Controllers
          protected override void Attack()
          {
              base.Attack();
-             var laser = Instantiate(weaponData.projectilePrefab, transform.position, Quaternion.identity);
-             laser.GetComponent<LaserRevolverBehaviour>().CheckDirection(PlayerMovement.movementDirection);
+             Vector3 position = transform.position;
+             var mob = Physics2D.OverlapCircle(position, weaponData.projectileRange, mobLayerMask);
+             if (mob != null)
+             {
+                 var laser = Instantiate(weaponData.projectilePrefab, position, Quaternion.identity);
+                 laser.GetComponent<LaserRevolverBehaviour>().CheckDirection(mob.transform.position - position);
+             }
          }
     }
 }

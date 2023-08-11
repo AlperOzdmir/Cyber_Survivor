@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6760399835552194958}
   - component: {fileID: 1465165017918155666}
   - component: {fileID: -4225175022924344973}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Basic Robot
   m_TagString: Mob
   m_Icon: {fileID: 0}

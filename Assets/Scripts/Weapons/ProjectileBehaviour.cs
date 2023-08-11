@@ -19,15 +19,13 @@ namespace Weapons
         {
             if (direction == Vector3.zero)
             {
-                Direction = Vector3.right;
+                Direction = Vector3.up;
             }
             else
             {
                 Direction = direction;   
             }
-            
-            var directionX = Direction.x;
-            var directionY = Direction.y;
+            gameObject.transform.rotation = Quaternion.LookRotation(Vector3.forward, Direction);
         }
 
         protected virtual void OnTriggerEnter2D(Collider2D other)
@@ -36,6 +34,11 @@ namespace Weapons
             {
                 other.gameObject.GetComponent<Mob>().TakeDamage(weaponData.damage);
             }
+            /* else if (other.CompareTag("Player"))
+            {
+                other.gameObject.GetComponent<Player.PlayerCombat>().TakeDamage(weaponData.damage);
+            }
+            */
         }
     }
 }

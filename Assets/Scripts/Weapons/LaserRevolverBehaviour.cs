@@ -19,7 +19,7 @@ namespace Weapons
         protected override void OnTriggerEnter2D(Collider2D other)
         {
             base.OnTriggerEnter2D(other);
-            if (other.gameObject.CompareTag("Mob"))
+            if (other.CompareTag("Mob"))
             {
                 Destroy(gameObject);
             }
