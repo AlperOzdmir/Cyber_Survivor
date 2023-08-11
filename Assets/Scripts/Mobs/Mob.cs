@@ -14,6 +14,7 @@ namespace Mobs
         private MobSpawner mobSpawner;
     
         private float currentHealth;
+        private float currentArmor;
         
         private float shortestDistance = Mathf.Infinity;
         private float distanceToPlayer;
@@ -25,6 +26,7 @@ namespace Mobs
             mobSpawner = FindObjectOfType<MobSpawner>();
             players = mobSpawner.GetPlayersList();
             currentHealth = mobData.health;
+            currentArmor = mobData.armor;
         }
 
         private void FixedUpdate()
@@ -66,11 +68,24 @@ namespace Mobs
         
         public void TakeDamage(float damage)
         {
-            currentHealth -= damage;
-            if (currentHealth <= 0)
+            if (currentArmor > 0)
             {
-                Destroy(gameObject);
+                currentArmor -= damage;
             }
+            else
+            {
+                currentHealth -= damage;
+                if (currentHealth <= 0)
+                {
+                    Die();
+                }
+            }
+        }
+
+        private void Die()
+        {
+            Destroy(gameObject);
+            // Might add some explosion effect here
         }
     }
 }

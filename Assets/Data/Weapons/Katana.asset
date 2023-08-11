@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43f7fded833371f4ca39c7ba23210705, type: 3}
-  m_Name: Laser Revolver Data
+  m_Name: Katana
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 0}
-  damage: 15
-  attackSpeed: 0.5
+  weaponPrefab: {fileID: 8979953382641655747, guid: 4e66c68f78d3b5d4eb8b9fb67251b039, type: 3}
+  damage: 25
+  attackSpeed: 1
   armorPenetration: 0
-  isMelee: 0
-  projectilePrefab: {fileID: 3354439074668917584, guid: 005ce0a66c1c0954dbdb931b1d2c3189, type: 3}
-  projectileSpeed: 4
-  projectileRange: 5
-  projectileLifetime: 2
+  isMelee: 1
+  projectilePrefab: {fileID: 0}
+  projectileSpeed: 0
+  projectileRange: 0
+  projectileLifetime: 0
+  meleeRange: 1
+  meleeAnimationTime: 1

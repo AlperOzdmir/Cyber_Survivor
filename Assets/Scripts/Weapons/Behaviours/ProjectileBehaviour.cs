@@ -1,14 +1,13 @@
-using System;
 using Mobs;
 using UnityEngine;
 
-namespace Weapons
+namespace Weapons.Behaviours
 {
     public class ProjectileBehaviour : MonoBehaviour
     {
         [SerializeField] protected WeaponDataSO weaponData;
         
-        protected Vector3 Direction = Vector3.zero;
+        protected Vector3 Direction;
         
         protected virtual void Start()
         {
@@ -17,14 +16,7 @@ namespace Weapons
         
         public void CheckDirection(Vector3 direction)
         {
-            if (direction == Vector3.zero)
-            {
-                Direction = Vector3.up;
-            }
-            else
-            {
-                Direction = direction;   
-            }
+            Direction = direction;
             gameObject.transform.rotation = Quaternion.LookRotation(Vector3.forward, Direction);
         }
 
@@ -34,6 +26,7 @@ namespace Weapons
             {
                 other.gameObject.GetComponent<Mob>().TakeDamage(weaponData.damage);
             }
+            // Online part
             /* else if (other.CompareTag("Player"))
             {
                 other.gameObject.GetComponent<Player.PlayerCombat>().TakeDamage(weaponData.damage);

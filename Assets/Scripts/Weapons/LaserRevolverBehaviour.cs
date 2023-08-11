@@ -1,5 +1,5 @@
 using UnityEngine;
-using Weapons.Controllers;
+using Weapons.Behaviours;
 
 namespace Weapons
 {
@@ -19,10 +19,6 @@ namespace Weapons
         protected override void OnTriggerEnter2D(Collider2D other)
         {
             base.OnTriggerEnter2D(other);
-            if (other.CompareTag("Mob"))
-            {
-                Destroy(gameObject);
-            }
             // Might add some animations, explosions, etc.
         }
     }

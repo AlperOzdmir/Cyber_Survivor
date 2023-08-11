@@ -8,18 +8,12 @@ namespace Weapons.Controllers
         [Header("Weapon Stats")]
         [SerializeField] protected WeaponDataSO weaponData;
         
-        protected PlayerMovement PlayerMovement;
         private Vector3 direction;
         private float timeToAttack;
     
         protected virtual void Start()
         {
             timeToAttack = 1f / weaponData.attackSpeed;
-            PlayerMovement = GetComponentInParent<PlayerMovement>();
-            if (PlayerMovement == null)
-            {
-                Debug.LogError("PlayerMovement not found!");
-            }
         }
 
         private void FixedUpdate()

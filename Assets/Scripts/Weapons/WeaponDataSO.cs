@@ -17,5 +17,9 @@ namespace Weapons
         public float projectileSpeed;
         public float projectileRange;
         public float projectileLifetime;
+
+        [Header("Melee Related")]
+        public float meleeRange;
+        public float meleeAnimationTime;
     }
 }
