@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Managers;
 using UnityEngine;
 
 namespace Mobs
@@ -6,21 +7,20 @@ namespace Mobs
     public class MobSpawner : MonoBehaviour
     {
         [SerializeField] private List<GameObject> mobs;
-        [SerializeField] private float spawnSpeed;
 
-        // TODO Can be optimized later
-        private List<GameObject> playersList = new List<GameObject>();
-
+        private SpawnManager spawnManager;
+        
         private float timeToSpawn;
+        
+        private void Awake()
+        {
+            spawnManager = FindObjectOfType<SpawnManager>();
+        }
     
         private void Start()
         {
-            var players = GameObject.FindGameObjectsWithTag("Player");
-            timeToSpawn = 1f / spawnSpeed;
-            foreach (var player in players)
-            {
-                playersList.Add(player);
-            }
+            SpawnMob();
+            timeToSpawn = 1f / spawnManager.spawnSpeed;
         }
     
         private void FixedUpdate()
@@ -29,7 +29,7 @@ namespace Mobs
             if (timeToSpawn <= 0)
             {
                 SpawnMob();
-                timeToSpawn = 1f / spawnSpeed;
+                timeToSpawn = 1f / spawnManager.spawnSpeed;
             }
         }
 
@@ -37,10 +37,5 @@ namespace Mobs
         {
             Instantiate(mobs[0], transform.position, Quaternion.identity);
         }
-    
-        public List<GameObject> GetPlayersList()
-        {
-            return playersList;
-        } 
     }
 }

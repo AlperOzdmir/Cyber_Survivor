@@ -22,4 +22,4 @@ MonoBehaviour:
   projectileRange: 0
   projectileLifetime: 0
   meleeRange: 1
-  meleeAnimationTime: 1
+  meleeAnimationTime: 0.25

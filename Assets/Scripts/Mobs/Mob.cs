@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using Managers;
 using Player;
 using UnityEngine;
 
@@ -8,10 +8,10 @@ namespace Mobs
     {
         [Header("Mob Stats")]
         [SerializeField] private MobDataSO mobData;
+        
+        private SpawnManager spawnManager;
     
         private PlayerCombat player;
-        private List<GameObject> players;
-        private MobSpawner mobSpawner;
     
         private float currentHealth;
         private float currentArmor;
@@ -21,21 +21,24 @@ namespace Mobs
         private Vector3 playerPosition;
         private Vector3 targetPlayerPosition;
 
+        private void Awake()
+        {
+            spawnManager = FindObjectOfType<SpawnManager>();
+        }
+
         private void Start()
         {
-            mobSpawner = FindObjectOfType<MobSpawner>();
-            players = mobSpawner.GetPlayersList();
             currentHealth = mobData.health;
             currentArmor = mobData.armor;
         }
 
         private void FixedUpdate()
         {
-            if (players.Count == 0)
+            if (spawnManager.players.Count == 0)
             {
                 return;
             }
-            foreach (var tempPlayer in players)
+            foreach (var tempPlayer in spawnManager.players)
             {
                 playerPosition = tempPlayer.transform.position;
                 distanceToPlayer = (transform.position - playerPosition).magnitude;
@@ -61,7 +64,7 @@ namespace Mobs
         {
             if (player.health <= mobData.damage)
             {
-                players.Remove(player.gameObject);
+                spawnManager.players.Remove(player.gameObject);
             }
             player.TakeDamage(mobData.damage);
         }
