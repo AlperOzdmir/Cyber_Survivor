@@ -12,7 +12,8 @@ namespace Mobs
         
         private SpawnManager spawnManager;
     
-        private PlayerCombat player;
+        private PlayerStats player;
+        private PlayerCombat playerCombat;
     
         private float currentHealth;
         private float currentArmor;
@@ -56,7 +57,8 @@ namespace Mobs
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                player = other.gameObject.GetComponent<PlayerCombat>();
+                player = other.gameObject.GetComponent<PlayerStats>();
+                playerCombat = other.gameObject.GetComponent<PlayerCombat>();
                 Attack();
             }
         }
@@ -67,7 +69,7 @@ namespace Mobs
             {
                 spawnManager.players.Remove(player.gameObject);
             }
-            player.TakeDamage(mobData.damage);
+            playerCombat.TakeDamage(mobData.damage);
         }
         
         public void TakeDamage(float damage)

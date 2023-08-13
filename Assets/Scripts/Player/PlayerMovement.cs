@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,7 +6,7 @@ namespace Player
 {
     public class PlayerMovement : MonoBehaviour
     {
-        [SerializeField] private PlayerDataSO playerData;
+        private PlayerStats playerData;
         
         private float currentMovementSpeed;
         
@@ -19,12 +20,17 @@ namespace Player
         // Might be necessary later to know players movement direction
         [HideInInspector]
         public Vector2 movementDirection = Vector2.zero;
-    
+
+        private void Awake()
+        {
+            playerData = GetComponent<PlayerStats>();
+        }
+
         private void Start()
         {
             // TODO Assign players to spawn points - online feature
             transform.position = spawnPoints[0].position;
-            currentMovementSpeed = playerData.movementSpeed;
+            currentMovementSpeed = playerData.CurrentMovementSpeed;
         }
 
         private void FixedUpdate()

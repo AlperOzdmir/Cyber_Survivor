@@ -892,6 +892,7 @@ GameObject:
   - component: {fileID: 933354822}
   - component: {fileID: 933354823}
   - component: {fileID: 933354824}
+  - component: {fileID: 933354825}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -979,7 +980,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fdb08992a48ec34d9c82ae165e5396c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData: {fileID: 11400000, guid: 4a89367efe5c54644a6876318f9cefca, type: 2}
   joystick: {fileID: 2133970056}
   rBody: {fileID: 933354822}
   spawnPoints:
@@ -1039,7 +1039,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 081984bcd70f9d548b784ad568161229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData: {fileID: 11400000, guid: 4a89367efe5c54644a6876318f9cefca, type: 2}
   healthBar: {fileID: 789934862}
 --- !u!114 &933354824
 MonoBehaviour:
@@ -1055,6 +1054,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   experience: 0
   experienceToNextLevel: 50
+--- !u!114 &933354825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933354816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a2684b2fb4dcd409b7b0cac0b1abbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterData: {fileID: 11400000, guid: 4a89367efe5c54644a6876318f9cefca, type: 2}
+  currentHealth: 0
+  currentRecovery: 0
+  currentArmor: 0
+  currentMovementSpeed: 0
+  currentStrength: 0
+  currentCooldownReduction: 0
+  currentLevel: 0
 --- !u!1 &1061951198
 GameObject:
   m_ObjectHideFlags: 0

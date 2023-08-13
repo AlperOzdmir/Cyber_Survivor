@@ -6,19 +6,20 @@ namespace Player
 {
     public class PlayerLevel : MonoBehaviour
     {
-        
         private ExperienceBar experienceBar;
         
-        private int level = 1;
+        private PlayerStats playerStats;
+        
         [HideInInspector]
         public int experience = 0;
         [HideInInspector]
         public int experienceToNextLevel = 50;
-        private int experienceCap = 50;
+        private readonly int experienceCap = 50;
 
         private void Awake()
         {
             experienceBar = FindObjectOfType<ExperienceBar>();
+            playerStats = GetComponent<PlayerStats>();
         }
 
         private void IncreaseExp(int exp)
@@ -32,9 +33,9 @@ namespace Player
         {
             if (experience >= experienceToNextLevel)
             {
-                level++;
+                playerStats.CurrentLevel++;
                 experience -= experienceToNextLevel;
-                experienceToNextLevel += (int)(experienceCap * level);
+                experienceToNextLevel += (int)(experienceCap * playerStats.CurrentLevel);
                 LevelUp();
                 experienceBar.UpdateBar(experience, experienceToNextLevel);
             }

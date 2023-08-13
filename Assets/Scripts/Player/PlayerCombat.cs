@@ -7,66 +7,55 @@ namespace Player
 {
     public class PlayerCombat : MonoBehaviour
     {
-        [SerializeField] private PlayerDataSO playerData;
+        private PlayerStats playerData;
+        
+        private float maxHealth;
         
         private List<GameObject> currentWeapons = new List<GameObject>();
         
-        public float CurrentHealth { get; private set; }
-        
-        public float CurrentRecovery { get; private set; }
-        public float CurrentArmor { get; private set; }
-        public float CurrentMovementSpeed { get; private set; }
-        
-        public float CurrentStrength { get; private set; }
-        public float CurrentCooldownReduction { get; private set; }
-    
         [Header("Related Objects")]
         [SerializeField] private HealthBar healthBar;
 
         private void Awake()
         {
-            Instantiate(playerData.startingWeapon, transform.position, Quaternion.identity, transform);
-            currentWeapons.Add(playerData.startingWeapon);
+            playerData = GetComponent<PlayerStats>();
+            Instantiate(playerData.StartingWeapon, transform.position, Quaternion.identity, transform);
+            currentWeapons.Add(playerData.StartingWeapon);
         }
 
         private void Start()
         {
-            CurrentHealth = playerData.health - 10;
-            CurrentRecovery = playerData.recovery;
-            CurrentArmor = playerData.armor;
-            CurrentMovementSpeed = playerData.movementSpeed;
-            CurrentStrength = playerData.strength;
-            CurrentCooldownReduction = playerData.cooldownReduction;
+            maxHealth = playerData.CurrentHealth;
         }
 
         private void FixedUpdate()
         {
-            CurrentHealth += CurrentRecovery * Time.deltaTime;
-            healthBar.UpdateBar(CurrentHealth, playerData.health);
+            playerData.CurrentHealth += playerData.CurrentRecovery * Time.deltaTime;
+            healthBar.UpdateBar(playerData.CurrentHealth, maxHealth);
         }
 
         public void TakeDamage(float damage)
         {
-            if (damage > CurrentArmor)
+            if (damage > playerData.CurrentArmor)
             {
                 ArmorBreak();
-                damage -= CurrentArmor;
-                CurrentHealth -= damage;
-                healthBar.UpdateBar(CurrentHealth, playerData.health);
-                if (CurrentHealth <= 0)
+                damage -= playerData.CurrentArmor;
+                playerData.CurrentHealth -= damage;
+                healthBar.UpdateBar(playerData.CurrentHealth, maxHealth);
+                if (playerData.CurrentHealth <= 0)
                 {
                     Die();
                 }
             }
             else
             {
-                CurrentArmor -= damage;
+                playerData.CurrentArmor -= damage;
             }
         }
 
         private void ArmorBreak()
         {
-            CurrentArmor = 0;
+            playerData.CurrentArmor = 0;
             // Add some animation here
         }
     
