@@ -1,3 +1,4 @@
+using System;
 using Managers;
 using Player;
 using UnityEngine;
@@ -90,6 +91,7 @@ namespace Mobs
         private void Die()
         {
             Destroy(gameObject);
+            Instantiate(mobData.experienceDropPrefab, transform.position, Quaternion.identity);
             // Might add some explosion effect here
         }
     }

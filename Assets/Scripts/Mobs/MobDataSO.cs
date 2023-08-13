@@ -9,5 +9,6 @@ namespace Mobs
         public float armor;
         public float damage;
         public float movementSpeed;
+        public GameObject experienceDropPrefab;
     }
 }

@@ -16,3 +16,5 @@ MonoBehaviour:
   armor: 0
   damage: 0.1
   movementSpeed: 1
+  experienceDrop: 5
+  experienceDropPrefab: {fileID: 9036897128193154155, guid: 941e2567c0f353740a32fc5e3322560b, type: 3}
