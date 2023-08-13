@@ -5,11 +5,13 @@ namespace Player
 {
     public class PlayerMovement : MonoBehaviour
     {
+        [SerializeField] private PlayerDataSO playerData;
+        
+        private float currentMovementSpeed;
+        
         [Header("Movement")]
-        [SerializeField] private float movementSpeed;
         [SerializeField] private FixedJoystick joystick;
         [SerializeField] private Rigidbody2D rBody;
-        [SerializeField] private CapsuleCollider2D collider;
 
         [Header("Related Objects")]
         [SerializeField] private List<Transform> spawnPoints;
@@ -21,11 +23,12 @@ namespace Player
         {
             // TODO Assign players to spawn points - online feature
             transform.position = spawnPoints[0].position;
+            currentMovementSpeed = playerData.movementSpeed;
         }
 
         private void FixedUpdate()
         {
-            rBody.velocity = new Vector2(joystick.Horizontal * movementSpeed, joystick.Vertical * movementSpeed);
+            rBody.velocity = new Vector2(joystick.Horizontal * currentMovementSpeed, joystick.Vertical * currentMovementSpeed);
             if (rBody.velocity.x != 0 || rBody.velocity.y != 0)
             {
                 movementDirection = rBody.velocity.normalized;
@@ -39,6 +42,12 @@ namespace Player
             var playersTilePosition = new Vector2(Mathf.RoundToInt(playersPosition.x), Mathf.RoundToInt(playersPosition.y));
             Debug.Log(playersTilePosition);
             return playersTilePosition;
+        }
+        
+        // For slow down or speed up effects
+        public void SetMovementSpeed(float speed)
+        {
+            currentMovementSpeed = speed;
         }
     }
 }

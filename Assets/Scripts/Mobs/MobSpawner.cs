@@ -35,7 +35,7 @@ namespace Mobs
 
         private void SpawnMob()
         {
-            Instantiate(mobs[0], transform.position, Quaternion.identity);
+            Instantiate(mobs[0], transform.position, Quaternion.identity, transform);
         }
     }
 }

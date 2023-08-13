@@ -28,25 +28,25 @@ namespace Managers
                     if (i == width - 2 || j == height - 2 || i == 1 || j == 1)
                     {
                         // Tile with collider in order to set map limits
-                        var tile = Instantiate(limitTile, new Vector3(i, j), quaternion.identity);
+                        var tile = Instantiate(limitTile, new Vector3(i, j), quaternion.identity, transform);
                         tile.name = $"Tile {i} {j}";
                     }
                     else if (i == width - 3 || j == height - 3 || i == 2 || j == 2)
                     {
                         // Mob spawner tiles
-                        var tile = Instantiate(mobSpawnerTile, new Vector3(i, j), quaternion.identity);
+                        var tile = Instantiate(mobSpawnerTile, new Vector3(i, j), quaternion.identity, transform);
                         tile.name = $"Tile {i} {j}";
                     }
                     else if (i == width / 2)
                     {
                         // Mob spawner tiles
-                        var tile = Instantiate(mobSpawnerTile, new Vector3(i, j), quaternion.identity);
+                        var tile = Instantiate(mobSpawnerTile, new Vector3(i, j), quaternion.identity, transform);
                         tile.name = $"Tile {i} {j}";
                     }
                     else
                     {
                         var randomTile = PickRandomTile();
-                        var tile = Instantiate(randomTile, new Vector3(i, j), quaternion.identity);
+                        var tile = Instantiate(randomTile, new Vector3(i, j), quaternion.identity, transform);
                         tile.name = $"Tile {i} {j}";
                     }
                 }

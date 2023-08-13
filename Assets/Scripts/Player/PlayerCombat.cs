@@ -1,31 +1,50 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Player
 {
     public class PlayerCombat : MonoBehaviour
     {
-        private float maxHealth = 100f;
-    
-        [Header("Stats")]
-        [HideInInspector]
-        public float health;
-        private float cooldownReduction = 0f;
+        [SerializeField] private PlayerDataSO playerData;
+        
+        private List<GameObject> currentWeapons = new List<GameObject>();
+        
+        public float CurrentHealth { get; private set;}
+        public float CurrentArmor { get; private set;}
+        private float currentMovementSpeed;
+        private float currentCooldownReduction;
     
         [Header("Related Objects")]
         [SerializeField] private StatusBar healthBar;
-    
+
+        private void Awake()
+        {
+            Instantiate(playerData.startingWeapon, transform.position, Quaternion.identity, transform);
+            currentWeapons.Add(playerData.startingWeapon);
+        }
+
         private void Start()
         {
-            health = maxHealth;
+            CurrentHealth = playerData.health;
         }
     
         public void TakeDamage(float damage)
         {
-            health -= damage;
-            healthBar.UpdateBar(health, maxHealth);
-            if (health <= 0)
+            if (damage > CurrentArmor)
             {
-                Die();
+                CurrentArmor = 0;
+                damage -= CurrentArmor;
+                CurrentHealth -= damage;
+                healthBar.UpdateBar(CurrentHealth, playerData.health);
+                if (CurrentHealth <= 0)
+                {
+                    Die();
+                }
+            }
+            else
+            {
+                CurrentArmor -= damage;
             }
         }
     

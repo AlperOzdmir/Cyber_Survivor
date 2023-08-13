@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Mobs
 {
-    [CreateAssetMenu(fileName = "Mob Data", menuName = "ScriptableObjects/MobData", order = 1)]
+    [CreateAssetMenu(fileName = "Mob Data", menuName = "Scriptable Objects/Mob Data", order = 1)]
     public class MobDataSO : ScriptableObject
     {
         public float health;

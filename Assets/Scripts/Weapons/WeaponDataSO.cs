@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Weapons
 {
-    [CreateAssetMenu(fileName = "WeaponData", menuName = "ScriptableObjects/WeaponData", order = 1)]
+    [CreateAssetMenu(fileName = "Weapon Data", menuName = "Scriptable Objects/Weapon Data", order = 1)]
     public class WeaponDataSO : ScriptableObject
     {
         [Header("Weapon Stats")]

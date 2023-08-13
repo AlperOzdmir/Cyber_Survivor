@@ -62,7 +62,7 @@ namespace Mobs
     
         private void Attack()
         {
-            if (player.health <= mobData.damage)
+            if (player.CurrentHealth + player.CurrentArmor <= mobData.damage)
             {
                 spawnManager.players.Remove(player.gameObject);
             }
@@ -71,17 +71,19 @@ namespace Mobs
         
         public void TakeDamage(float damage)
         {
-            if (currentArmor > 0)
+            if (damage > currentArmor)
             {
-                currentArmor -= damage;
-            }
-            else
-            {
+                currentArmor = 0;
+                damage -= currentArmor;
                 currentHealth -= damage;
                 if (currentHealth <= 0)
                 {
                     Die();
                 }
+            }
+            else
+            {
+                currentArmor -= damage;
             }
         }
 

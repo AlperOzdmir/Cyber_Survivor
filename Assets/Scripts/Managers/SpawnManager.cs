@@ -15,7 +15,6 @@ namespace Managers
         private void Awake()
         {
             players = GameObject.FindGameObjectsWithTag("Player").ToList();
-            Debug.Log(players.Count);
         }
     }
 }
