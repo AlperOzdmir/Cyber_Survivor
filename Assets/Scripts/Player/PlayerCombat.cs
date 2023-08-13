@@ -16,7 +16,7 @@ namespace Player
         private float currentCooldownReduction;
     
         [Header("Related Objects")]
-        [SerializeField] private StatusBar healthBar;
+        [SerializeField] private HealthBar healthBar;
 
         private void Awake()
         {

@@ -11,6 +11,7 @@ namespace Collectibles
         public void Collect()
         {
             Destroy(gameObject);
+            // Might add some fancy particle effects here
         }
     }
 }

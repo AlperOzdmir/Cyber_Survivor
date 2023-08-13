@@ -1,3 +1,4 @@
+using System;
 using Collectibles;
 using UnityEngine;
 
@@ -5,15 +6,26 @@ namespace Player
 {
     public class PlayerLevel : MonoBehaviour
     {
+        
+        private ExperienceBar experienceBar;
+        
         private int level = 1;
-        private int experience = 0;
-        private int experienceToNextLevel = 50;
+        [HideInInspector]
+        public int experience = 0;
+        [HideInInspector]
+        public int experienceToNextLevel = 50;
         private int experienceCap = 50;
 
-        public void IncreaseExp(int exp)
+        private void Awake()
+        {
+            experienceBar = FindObjectOfType<ExperienceBar>();
+        }
+
+        private void IncreaseExp(int exp)
         {
             experience += exp;
             CheckLevelUp();
+            experienceBar.UpdateBar(experience, experienceToNextLevel);
         }
 
         private void CheckLevelUp()
@@ -22,8 +34,9 @@ namespace Player
             {
                 level++;
                 experience -= experienceToNextLevel;
-                experienceToNextLevel = (int)(experienceCap * level);
+                experienceToNextLevel += (int)(experienceCap * level);
                 LevelUp();
+                experienceBar.UpdateBar(experience, experienceToNextLevel);
             }
         }
 

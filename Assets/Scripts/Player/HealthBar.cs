@@ -1,15 +1,16 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Player
 {
-    public class StatusBar : MonoBehaviour
+    public class HealthBar : MonoBehaviour
     {
-        [SerializeField] private Transform statusBar;
+        [SerializeField] private Transform healthBar;
     
         public void UpdateBar(float currentValue, float maxValue)
         {
             var percentage = currentValue / maxValue;
-            statusBar.localScale = new Vector3(percentage, 1, 1);
+            healthBar.localScale = new Vector3(percentage, 1, 1);
         }
     }
 }
