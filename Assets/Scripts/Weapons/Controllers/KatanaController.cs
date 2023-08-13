@@ -1,4 +1,6 @@
+using System;
 using Mobs;
+using Player;
 using UnityEngine;
 
 namespace Weapons.Controllers
@@ -20,7 +22,7 @@ namespace Weapons.Controllers
             var mob = Physics2D.OverlapCircle(position, weaponData.meleeRange, mobLayerMask);
             if (mob != null)
             {
-                mob.GetComponent<Mob>().TakeDamage(weaponData.damage);
+                mob.GetComponent<Mob>().TakeDamage(weaponData.damage * ((100 + playerCombat.CurrentStrength) / 100));
                 var slash = Instantiate(weaponData.weaponPrefab, position, Quaternion.identity);
                 slash.GetComponent<KatanaBehaviour>().CheckDirection(mob.transform.position - position);
             }

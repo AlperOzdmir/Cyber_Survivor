@@ -16,6 +16,7 @@ namespace Player
         [Header("Related Objects")]
         [SerializeField] private List<Transform> spawnPoints;
     
+        // Might be necessary later to know players movement direction
         [HideInInspector]
         public Vector2 movementDirection = Vector2.zero;
     
@@ -35,7 +36,7 @@ namespace Player
             }
         }
     
-        // Will be used for area happenings (earthquake etc.)
+        // Will be used for area happenings (earthquake etc.) to see if player is effected
         private Vector2 GetPlayersTilePosition()
         {
             var playersPosition = transform.position;

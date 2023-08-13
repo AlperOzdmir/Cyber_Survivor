@@ -8,12 +8,15 @@ namespace Weapons.Controllers
         [Header("Weapon Stats")]
         [SerializeField] protected WeaponDataSO weaponData;
         
+        protected PlayerCombat playerCombat;
+        
         private Vector3 direction;
         private float timeToAttack;
     
         protected virtual void Start()
         {
-            timeToAttack = 1f / weaponData.attackSpeed;
+            playerCombat = GetComponentInParent<PlayerCombat>();
+            timeToAttack = (1f / weaponData.attackSpeed) * ((100 - playerCombat.CurrentCooldownReduction) / 100);
         }
 
         private void FixedUpdate()
@@ -22,13 +25,12 @@ namespace Weapons.Controllers
             if (timeToAttack <= 0)
             {
                 Attack();
-                timeToAttack = 1f / weaponData.attackSpeed;
             }
         }
 
         protected virtual void Attack()
         {
-            timeToAttack = 1f / weaponData.attackSpeed;
+            timeToAttack = (1f / weaponData.attackSpeed) * ((100 - playerCombat.CurrentCooldownReduction) / 100);
         }
     }
 }

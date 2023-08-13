@@ -7,8 +7,11 @@ namespace Player
     public class PlayerDataSO : ScriptableObject
     {
         public float health;
+        public float recovery;
         public float armor;
         public float movementSpeed;
+        public float cooldownReduction;
+        public float strength;
         public GameObject startingWeapon;
     }
 }

@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Cyber Cowboy
   m_EditorClassIdentifier: 
   health: 50
+  recovery: 0.5
   armor: 10
   movementSpeed: 2
+  cooldownReduction: 75
+  strength: 5
   startingWeapon: {fileID: 4168609568882679471, guid: 8d952ae3e542ff149b505ff03eb57521, type: 3}
