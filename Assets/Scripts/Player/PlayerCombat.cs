@@ -27,6 +27,14 @@ namespace Player
 
         private void FixedUpdate()
         {
+            if (playerData.CurrentHealth < maxHealth)
+            {
+                RegenerateHealth();
+            }
+        }
+        
+        private void RegenerateHealth()
+        {
             playerData.CurrentHealth += playerData.CurrentRecovery * Time.deltaTime;
             healthBar.UpdateBar(playerData.CurrentHealth, maxHealth);
         }

@@ -7,21 +7,14 @@ namespace Player
 {
     public class PlayerStats : MonoBehaviour
     {
-        [HideInInspector]
-        public float currentHealth;
-        [HideInInspector]
-        public float currentRecovery;
-        [HideInInspector]
-        public float currentArmor;
-        [HideInInspector]
-        public float currentMovementSpeed;
-        [HideInInspector]
-        public float currentStrength;
-        [HideInInspector]
-        public float currentCooldownReduction;
-        [HideInInspector] 
-        public int currentLevel;
-        public GameObject StartingWeapon {get; private set;}
+        private float currentHealth;
+        private float currentRecovery;
+        private float currentArmor;
+        private float currentMovementSpeed;
+        private float currentStrength;
+        private float currentCooldownReduction;
+        private int currentLevel;
+        private GameObject startingWeapon;
 
         private void Awake()
         {
@@ -33,8 +26,18 @@ namespace Player
             CurrentMovementSpeed = characterData.movementSpeed;
             CurrentStrength = characterData.strength;
             CurrentCooldownReduction = characterData.cooldownReduction;
-            StartingWeapon = characterData.startingWeapon;
+            startingWeapon = characterData.startingWeapon;
             CurrentLevel = 1;
+        }
+
+        private void Start()
+        {
+            GameManager.Instance.UpdateHealthText(currentHealth);
+            GameManager.Instance.UpdateRecoveryText(currentRecovery);
+            GameManager.Instance.UpdateArmorText(currentArmor);
+            GameManager.Instance.UpdateMovementSpeedText(currentMovementSpeed);
+            GameManager.Instance.UpdateCooldownReductionText(currentCooldownReduction);
+            GameManager.Instance.UpdateStrengthText(currentStrength);
         }
 
         public float CurrentHealth
@@ -43,6 +46,10 @@ namespace Player
             set
             {
                 currentHealth = value;
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.UpdateHealthText(currentHealth);
+                }
             }
         }
         
@@ -52,6 +59,10 @@ namespace Player
             set
             {
                 currentRecovery = value;
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.UpdateRecoveryText(currentRecovery);
+                }
             }
         }
         
@@ -61,6 +72,10 @@ namespace Player
             set
             {
                 currentArmor = value;
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.UpdateArmorText(currentArmor);
+                }
             }
         }
         
@@ -70,15 +85,10 @@ namespace Player
             set
             {
                 currentMovementSpeed = value;
-            }
-        }
-        
-        public float CurrentStrength
-        {
-            get => currentStrength;
-            set
-            {
-                currentStrength = value;
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.UpdateMovementSpeedText(currentMovementSpeed);
+                }
             }
         }
         
@@ -88,6 +98,23 @@ namespace Player
             set
             {
                 currentCooldownReduction = value;
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.UpdateCooldownReductionText(currentCooldownReduction);
+                }
+            }
+        }
+        
+        public float CurrentStrength
+        {
+            get => currentStrength;
+            set
+            {
+                currentStrength = value;
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.UpdateStrengthText(currentStrength);
+                }
             }
         }
         
@@ -97,6 +124,15 @@ namespace Player
             set
             {
                 currentLevel = value;
+            }
+        }
+        
+        public GameObject StartingWeapon
+        {
+            get => startingWeapon;
+            set
+            {
+                startingWeapon = value;
             }
         }
     }
