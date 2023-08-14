@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 352b9da31658f254695209a6f81ef38b, type: 3}
-  m_Name: Cyber Cowboy
+  m_Name: Slasher
   m_EditorClassIdentifier: 
-  health: 50
-  recovery: 0.3
-  armor: 10
-  movementSpeed: 2
+  health: 60
+  recovery: 0.25
+  armor: 0
+  movementSpeed: 2.25
   cooldownReduction: 0
-  strength: 5
-  startingWeapon: {fileID: 4168609568882679471, guid: 8d952ae3e542ff149b505ff03eb57521, type: 3}
+  strength: 10
+  startingWeapon: {fileID: 1708571933901858062, guid: 569db881044d6d3439446096baf7dea1, type: 3}

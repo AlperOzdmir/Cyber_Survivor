@@ -15,16 +15,13 @@ namespace Player
         
         [Header("Related Objects")]
         [SerializeField] private HealthBar healthBar;
+        
 
-        private void Awake()
+        private void Start()
         {
             playerData = GetComponent<PlayerStats>();
             Instantiate(playerData.StartingWeapon, transform.position, Quaternion.identity, transform);
             currentWeapons.Add(playerData.StartingWeapon);
-        }
-
-        private void Start()
-        {
             maxHealth = playerData.CurrentHealth;
         }
 

@@ -12,11 +12,13 @@ namespace Weapons.Controllers
         
         private Vector3 direction;
         private float timeToAttack;
+        private float attackSpeed;
     
         protected virtual void Start()
         {
             player = GetComponentInParent<PlayerStats>();
-            timeToAttack = (1f / weaponData.attackSpeed) * ((100 - player.CurrentCooldownReduction) / 100);
+            attackSpeed = (1f / weaponData.attackSpeed) * ((100 - player.CurrentCooldownReduction) / 100);
+            timeToAttack = attackSpeed;
         }
 
         private void FixedUpdate()
@@ -30,7 +32,7 @@ namespace Weapons.Controllers
 
         protected virtual void Attack()
         {
-            timeToAttack = (1f / weaponData.attackSpeed) * ((100 - player.CurrentCooldownReduction) / 100);
+            timeToAttack = attackSpeed;
         }
     }
 }

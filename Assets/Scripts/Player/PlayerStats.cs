@@ -1,4 +1,5 @@
 using System;
+using Managers;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -6,8 +7,6 @@ namespace Player
 {
     public class PlayerStats : MonoBehaviour
     {
-        [SerializeField] private PlayerDataSO characterData;
-
         [HideInInspector]
         public float currentHealth;
         [HideInInspector]
@@ -22,11 +21,12 @@ namespace Player
         public float currentCooldownReduction;
         [HideInInspector] 
         public int currentLevel;
-        
         public GameObject StartingWeapon {get; private set;}
 
         private void Awake()
         {
+            var characterData = CharacterManager.GetCharacterData();
+            CharacterManager.Instance.DestroySingleton();
             CurrentHealth = characterData.health;
             CurrentRecovery = characterData.recovery;
             CurrentArmor = characterData.armor;

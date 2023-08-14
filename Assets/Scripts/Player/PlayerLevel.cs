@@ -15,8 +15,9 @@ namespace Player
         [HideInInspector]
         public int experienceToNextLevel = 50;
         private readonly int experienceCap = 50;
+        
 
-        private void Awake()
+        private void Start()
         {
             experienceBar = FindObjectOfType<ExperienceBar>();
             playerStats = GetComponent<PlayerStats>();

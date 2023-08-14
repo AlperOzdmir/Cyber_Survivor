@@ -20,15 +20,12 @@ namespace Player
         // Might be necessary later to know players movement direction
         [HideInInspector]
         public Vector2 movementDirection = Vector2.zero;
-
-        private void Awake()
-        {
-            playerData = GetComponent<PlayerStats>();
-        }
+        
 
         private void Start()
         {
             // TODO Assign players to spawn points - online feature
+            playerData = GetComponent<PlayerStats>();
             transform.position = spawnPoints[0].position;
             currentMovementSpeed = playerData.CurrentMovementSpeed;
         }
