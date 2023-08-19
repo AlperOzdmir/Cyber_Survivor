@@ -7,11 +7,25 @@ namespace Collectibles
     public class ExperienceDrop : MonoBehaviour
     {
         public int experienceValue;
+        private PlayerLevel playerLevel;
 
-        public void Collect()
+        private void Awake()
         {
-            Destroy(gameObject);
-            // Might add some fancy particle effects here
+            playerLevel = FindObjectOfType<PlayerLevel>();
+        }
+
+        private void Collect()
+        {
+            playerLevel.IncreaseExp(experienceValue);
+        }
+        
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("Player"))
+            {
+                Collect();
+                Destroy(gameObject);
+            }
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Player
         private float currentStrength;
         private float currentCooldownReduction;
         private int currentLevel;
+        private float currentMagnet;
         private GameObject startingWeapon;
 
         private void Awake()
@@ -26,6 +27,7 @@ namespace Player
             CurrentMovementSpeed = characterData.movementSpeed;
             CurrentStrength = characterData.strength;
             CurrentCooldownReduction = characterData.cooldownReduction;
+            currentMagnet = characterData.magnet;
             startingWeapon = characterData.startingWeapon;
             CurrentLevel = 1;
         }
@@ -115,6 +117,15 @@ namespace Player
                 {
                     GameManager.Instance.UpdateStrengthText(currentStrength);
                 }
+            }
+        }
+        
+        public float CurrentMagnet
+        {
+            get => currentMagnet;
+            set
+            {
+                currentMagnet = value;
             }
         }
         

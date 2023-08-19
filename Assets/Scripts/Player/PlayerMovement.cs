@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Managers;
 using UnityEngine;
 
 namespace Player
@@ -32,6 +33,11 @@ namespace Player
 
         private void FixedUpdate()
         {
+            if (GameManager.Instance.GetGameState() != GameManager.GameState.InGame)
+            {
+                rBody.velocity = Vector2.zero;
+                return;
+            }
             rBody.velocity = new Vector2(joystick.Horizontal * currentMovementSpeed, joystick.Vertical * currentMovementSpeed);
             if (rBody.velocity.x != 0 || rBody.velocity.y != 0)
             {

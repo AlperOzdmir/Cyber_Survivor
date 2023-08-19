@@ -18,4 +18,5 @@ MonoBehaviour:
   movementSpeed: 2.25
   cooldownReduction: 0
   strength: 10
+  magnet: 5
   startingWeapon: {fileID: 1708571933901858062, guid: 569db881044d6d3439446096baf7dea1, type: 3}

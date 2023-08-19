@@ -21,6 +21,8 @@ namespace Managers
         public TextMeshProUGUI movementSpeedText;
         public TextMeshProUGUI cooldownReductionText;
         public TextMeshProUGUI strengthText;
+        
+        private bool isLevelingUp;
 
         private float timer;
 
@@ -55,6 +57,10 @@ namespace Managers
                     UpdateTime();
                     break;
                 case GameState.LevelUpMenu:
+                    if (!isLevelingUp)
+                    {
+                        OpenLevelUpMenu();
+                    }
                     UpdateTime();
                     break;
                 case GameState.InGameMenu:
@@ -72,6 +78,11 @@ namespace Managers
         {
             CurrentGameState = gameState;
         }
+
+        public GameState GetGameState()
+        {
+            return CurrentGameState;
+        }
         
         public void OpenInGameMenu()
         {
@@ -87,23 +98,25 @@ namespace Managers
             gamePlayUI.SetActive(true);
         }
         
-        public void OpenGameOverMenu()
+        private void OpenGameOverMenu()
         {
             SetGameState(GameState.GameOver);
             gameOverMenuUI.SetActive(true);
             gamePlayUI.SetActive(false);
         }
         
-        public void OpenLevelUpMenu()
+        private void OpenLevelUpMenu()
         {
             SetGameState(GameState.LevelUpMenu);
+            isLevelingUp = true;
             levelUpMenuUI.SetActive(true);
             gamePlayUI.SetActive(false);
         }
         
-        public void CloseLevelUpMenu()
+        private void CloseLevelUpMenu()
         {
             SetGameState(GameState.InGame);
+            isLevelingUp = false;
             levelUpMenuUI.SetActive(false);
             gamePlayUI.SetActive(true);
         }

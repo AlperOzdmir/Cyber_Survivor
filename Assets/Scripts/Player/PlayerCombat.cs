@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Managers;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -39,6 +40,16 @@ namespace Player
             healthBar.UpdateBar(playerData.CurrentHealth, maxHealth);
         }
 
+        public void Heal(float healing)
+        {
+            playerData.CurrentHealth += healing;
+            if (playerData.CurrentHealth > maxHealth)
+            {
+                playerData.CurrentHealth = maxHealth;
+            }
+            healthBar.UpdateBar(playerData.CurrentHealth, maxHealth);
+        }
+
         public void TakeDamage(float damage)
         {
             if (damage > playerData.CurrentArmor)
@@ -66,6 +77,7 @@ namespace Player
     
         private void Die()
         {
+            GameManager.Instance.SetGameState(GameManager.GameState.GameOver);
             Destroy(gameObject);
         }
     }

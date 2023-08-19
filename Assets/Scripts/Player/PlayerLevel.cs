@@ -1,5 +1,5 @@
-using System;
 using Collectibles;
+using Managers;
 using UnityEngine;
 
 namespace Player
@@ -23,7 +23,7 @@ namespace Player
             playerStats = GetComponent<PlayerStats>();
         }
 
-        private void IncreaseExp(int exp)
+        public void IncreaseExp(int exp)
         {
             experience += exp;
             CheckLevelUp();
@@ -44,18 +44,7 @@ namespace Player
 
         private void LevelUp()
         {
-            Debug.Log("Level Up!");
-            return;
-        }
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.CompareTag("Experience"))
-            {
-                var experienceDrop = other.GetComponent<ExperienceDrop>();
-                IncreaseExp(experienceDrop.experienceValue);
-                experienceDrop.Collect();
-            }
+            GameManager.Instance.SetGameState(GameManager.GameState.LevelUpMenu);
         }
     }
 }
