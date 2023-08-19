@@ -1,4 +1,5 @@
 using UnityEngine;
+using Weapons.Controllers;
 
 namespace Weapons
 {
@@ -11,6 +12,7 @@ namespace Weapons
         public float attackSpeed;
         public float armorPenetration;
         public bool isMelee;
+        public WeaponController nextLevelWeapon;
         
         [Header("Projectile Related")]
         public GameObject projectilePrefab;

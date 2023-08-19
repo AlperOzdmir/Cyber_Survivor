@@ -1,18 +1,16 @@
-using System;
-using System.Collections.Generic;
 using Managers;
 using UnityEngine;
-using UnityEngine.Serialization;
+using Weapons.Controllers;
 
 namespace Player
 {
     public class PlayerCombat : MonoBehaviour
     {
         private PlayerStats playerData;
+        private PlayerInventory playerInventory;
         
         private float maxHealth;
-        
-        private List<GameObject> currentWeapons = new List<GameObject>();
+        private int weaponIndex;
         
         [Header("Related Objects")]
         [SerializeField] private HealthBar healthBar;
@@ -21,9 +19,16 @@ namespace Player
         private void Start()
         {
             playerData = GetComponent<PlayerStats>();
-            Instantiate(playerData.StartingWeapon, transform.position, Quaternion.identity, transform);
-            currentWeapons.Add(playerData.StartingWeapon);
+            playerInventory = GetComponent<PlayerInventory>();
             maxHealth = playerData.CurrentHealth;
+            weaponIndex = 0;
+            SpawnWeapon(playerData.StartingWeapon, weaponIndex);
+        }
+
+        private void SpawnWeapon(WeaponController weaponController, int index)
+        {
+            Instantiate(weaponController, transform.position, Quaternion.identity, transform);
+            playerInventory.AddWeapon(weaponController, index);
         }
 
         private void FixedUpdate()

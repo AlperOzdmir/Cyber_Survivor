@@ -19,4 +19,4 @@ MonoBehaviour:
   cooldownReduction: 0
   strength: 5
   magnet: 5
-  startingWeapon: {fileID: 4168609568882679471, guid: 8d952ae3e542ff149b505ff03eb57521, type: 3}
+  startingWeapon: {fileID: 4168609568882679469, guid: 8d952ae3e542ff149b505ff03eb57521, type: 3}

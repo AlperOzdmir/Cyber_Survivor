@@ -6,7 +6,7 @@ namespace Weapons.Controllers
     public class WeaponController : MonoBehaviour
     {
         [Header("Weapon Stats")]
-        [SerializeField] protected WeaponDataSO weaponData;
+        public WeaponDataSO weaponData;
         
         protected PlayerStats player;
         

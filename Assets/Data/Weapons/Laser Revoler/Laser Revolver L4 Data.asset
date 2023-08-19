@@ -10,14 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43f7fded833371f4ca39c7ba23210705, type: 3}
-  m_Name: Laser Revolver Data
+  m_Name: Laser Revolver L4 Data
   m_EditorClassIdentifier: 
   weaponPrefab: {fileID: 0}
-  damage: 15
-  attackSpeed: 0.5
+  damage: 30
+  attackSpeed: 1.1
   armorPenetration: 0
   isMelee: 0
+  nextLevelWeapon: {fileID: 4168609568882679469, guid: d8c739fc6920706439fc7b07099d92cb, type: 3}
   projectilePrefab: {fileID: 3354439074668917584, guid: 005ce0a66c1c0954dbdb931b1d2c3189, type: 3}
   projectileSpeed: 4
   projectileRange: 5
   projectileLifetime: 2
+  meleeRange: 0
+  meleeAnimationTime: 0

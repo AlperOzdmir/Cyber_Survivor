@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f7fded833371f4ca39c7ba23210705, type: 3}
+  m_Name: Laser Revolver L3 Data
+  m_EditorClassIdentifier: 
+  weaponPrefab: {fileID: 0}
+  damage: 25
+  attackSpeed: 0.9
+  armorPenetration: 0
+  isMelee: 0
+  nextLevelWeapon: {fileID: 4168609568882679469, guid: c5aa4a608013a914badad3043164e63b, type: 3}
+  projectilePrefab: {fileID: 3354439074668917584, guid: 005ce0a66c1c0954dbdb931b1d2c3189, type: 3}
+  projectileSpeed: 4
+  projectileRange: 5
+  projectileLifetime: 2
+  meleeRange: 0
+  meleeAnimationTime: 0

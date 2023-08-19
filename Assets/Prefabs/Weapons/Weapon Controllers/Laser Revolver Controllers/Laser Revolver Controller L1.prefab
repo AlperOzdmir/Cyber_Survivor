@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4168609568882679470}
   - component: {fileID: 4168609568882679469}
   m_Layer: 3
-  m_Name: Laser Revolver Controller
+  m_Name: Laser Revolver Controller L1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

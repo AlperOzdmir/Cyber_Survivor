@@ -2,6 +2,7 @@ using System;
 using Managers;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Weapons.Controllers;
 
 namespace Player
 {
@@ -15,7 +16,7 @@ namespace Player
         private float currentCooldownReduction;
         private int currentLevel;
         private float currentMagnet;
-        private GameObject startingWeapon;
+        private WeaponController startingWeapon;
 
         private void Awake()
         {
@@ -138,7 +139,7 @@ namespace Player
             }
         }
         
-        public GameObject StartingWeapon
+        public WeaponController StartingWeapon
         {
             get => startingWeapon;
             set
