@@ -8,6 +8,8 @@ namespace Weapons.Controllers
         [Header("Weapon Stats")]
         public WeaponDataSO weaponData;
         
+        protected LayerMask mobLayerMask;
+        
         protected PlayerStats player;
         
         private Vector3 direction;
@@ -17,6 +19,7 @@ namespace Weapons.Controllers
         protected virtual void Start()
         {
             player = GetComponentInParent<PlayerStats>();
+            mobLayerMask = LayerMask.GetMask("Mob");
             attackSpeed = (1f / weaponData.attackSpeed) * ((100 - player.CurrentCooldownReduction) / 100);
             timeToAttack = attackSpeed;
         }

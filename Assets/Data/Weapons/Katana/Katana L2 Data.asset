@@ -10,16 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43f7fded833371f4ca39c7ba23210705, type: 3}
-  m_Name: Katana
+  m_Name: Katana L2 Data
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 8979953382641655747, guid: 4e66c68f78d3b5d4eb8b9fb67251b039, type: 3}
-  damage: 25
-  attackSpeed: 1
+  weaponPrefab: {fileID: 8979953382641655747, guid: dbef484876dc31147b340c1c30abe7e8, type: 3}
+  damage: 30
+  attackSpeed: 1.2
   armorPenetration: 0
   isMelee: 1
-  projectilePrefab: {fileID: 0}
+  nextLevelWeapon: {fileID: 1708571933901858056, guid: 293bd3bbda90d8242a5ca1be65bd5577, type: 3}
   projectileSpeed: 0
   projectileRange: 0
   projectileLifetime: 0
+  knockbackPower: 0
+  numberOfProjectiles: 0
+  numberOfBounces: 0
+  areaRadius: 0
+  areaDamage: 0
   meleeRange: 1.25
   meleeAnimationTime: 0.25

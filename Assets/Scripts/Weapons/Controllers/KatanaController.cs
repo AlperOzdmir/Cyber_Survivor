@@ -7,7 +7,6 @@ namespace Weapons.Controllers
 {
     public class KatanaController : WeaponController
     {
-        [SerializeField] private LayerMask mobLayerMask;
         
         private float damage;
         

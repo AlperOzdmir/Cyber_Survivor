@@ -12,15 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f7fded833371f4ca39c7ba23210705, type: 3}
   m_Name: Laser Revolver L3 Data
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 0}
+  weaponPrefab: {fileID: 3354439074668917584, guid: 32f922277f5f1864e9e7c277ffb421c5, type: 3}
   damage: 25
   attackSpeed: 0.9
   armorPenetration: 0
   isMelee: 0
   nextLevelWeapon: {fileID: 4168609568882679469, guid: c5aa4a608013a914badad3043164e63b, type: 3}
-  projectilePrefab: {fileID: 3354439074668917584, guid: 005ce0a66c1c0954dbdb931b1d2c3189, type: 3}
   projectileSpeed: 4
   projectileRange: 5
   projectileLifetime: 2
+  knockbackPower: 0
+  numberOfProjectiles: 0
+  numberOfBounces: 0
+  areaRadius: 0
+  areaDamage: 0
   meleeRange: 0
   meleeAnimationTime: 0

@@ -4,8 +4,6 @@ namespace Weapons.Controllers
 {
     public class LaserRevolverController : WeaponController
     {
-        [SerializeField] private LayerMask mobLayerMask;
-        
          protected override void Start()
         {
             base.Start();
@@ -18,7 +16,7 @@ namespace Weapons.Controllers
              var mob = Physics2D.OverlapCircle(position, weaponData.projectileRange, mobLayerMask);
              if (mob != null)
              {
-                 var laser = Instantiate(weaponData.projectilePrefab, position, Quaternion.identity);
+                 var laser = Instantiate(weaponData.weaponPrefab, position, Quaternion.identity);
                  laser.GetComponent<LaserRevolverBehaviour>().CheckDirection(mob.transform.position - position);
              }
          }

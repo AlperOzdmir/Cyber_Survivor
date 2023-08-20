@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43f7fded833371f4ca39c7ba23210705, type: 3}
-  m_Name: Laser Revolver L5 Data
+  m_Name: Laser RPG L3 Data
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 3354439074668917584, guid: b35e44537928b3f46996c5e464c17a88, type: 3}
-  damage: 35
-  attackSpeed: 1.3
+  weaponPrefab: {fileID: 3354439074668917584, guid: 9ee09f53f1bab044bbfb2a92293da8cd, type: 3}
+  damage: 40
+  attackSpeed: 0.55
   armorPenetration: 0
   isMelee: 0
   nextLevelWeapon: {fileID: 0}
-  projectileSpeed: 4
+  projectileSpeed: 1.25
   projectileRange: 5
-  projectileLifetime: 2
+  projectileLifetime: 4
   knockbackPower: 0
   numberOfProjectiles: 0
   numberOfBounces: 0
-  areaRadius: 0
-  areaDamage: 0
+  areaRadius: 1.5
+  areaDamage: 30
   meleeRange: 0
   meleeAnimationTime: 0

@@ -6,8 +6,8 @@ namespace Player
 {
     public class PlayerInventory : MonoBehaviour
     {
-        public List<WeaponController> weapons = new List<WeaponController>(12);
-        public int[] weaponLevels = new int[5];
+        public List<WeaponController> weapons = new List<WeaponController>(8);
+        public int[] weaponLevels = new int[8];
     
         public void AddWeapon(WeaponController weapon, int weaponIndex)
         {

@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5479801342632800077}
   - component: {fileID: 8645658300996288503}
-  - component: {fileID: -5915873824521714695}
   - component: {fileID: -5508656061467075478}
   - component: {fileID: 3988993675046496010}
+  - component: {fileID: -7610470633268348744}
   m_Layer: 0
-  m_Name: Blue Laser
+  m_Name: Laser RPG L5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3354439074668917584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.2, z: 1}
+  m_LocalScale: {x: 0.075, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,9 +75,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0.02521801, b: 1, a: 1}
+  m_Color: {r: 0.41509432, g: 0, b: 0.025282102, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -87,19 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-5915873824521714695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3354439074668917584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 969d68065e08cb24cab979241a635cef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: fef65ab72b7f91742a08ff8a14932498, type: 2}
 --- !u!61 &-5508656061467075478
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -147,3 +134,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-7610470633268348744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3354439074668917584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad2c80d5c13e29c45b62ca7e3ce3b0fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponData: {fileID: 11400000, guid: 1c6ddf6d3cccc0f4082e634869526406, type: 2}
+  mobLayerMask:
+    serializedVersion: 2
+    m_Bits: 128

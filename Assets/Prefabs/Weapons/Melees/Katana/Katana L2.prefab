@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 7490510489392048864}
   - component: {fileID: 6960240032738628145}
   m_Layer: 0
-  m_Name: Katana
+  m_Name: Katana L2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -182,4 +182,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeee2968319f2054a83f246c1ca50f9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: 993026c4d3b79df4d8eb9b305be909a6, type: 2}
+  weaponData: {fileID: 11400000, guid: e3b47add9051f314abe70e7c7c920e53, type: 2}

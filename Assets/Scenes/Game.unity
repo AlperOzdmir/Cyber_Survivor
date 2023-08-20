@@ -2347,8 +2347,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5275b4090fe00bd44864144f68df69c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapons: []
-  weaponLevels: 0000000000000000000000000000000000000000
+  weapons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  weaponLevels: 0000000000000000000000000000000000000000000000000000000000000000
 --- !u!1 &962279344
 GameObject:
   m_ObjectHideFlags: 0

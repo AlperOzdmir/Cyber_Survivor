@@ -15,10 +15,16 @@ namespace Weapons
         public WeaponController nextLevelWeapon;
         
         [Header("Projectile Related")]
-        public GameObject projectilePrefab;
         public float projectileSpeed;
         public float projectileRange;
         public float projectileLifetime;
+        
+        [Header("Special Effects")]
+        public float knockbackPower;
+        public int numberOfProjectiles;
+        public int numberOfBounces;
+        public float areaRadius;
+        public float areaDamage;
 
         [Header("Melee Related")]
         public float meleeRange;
