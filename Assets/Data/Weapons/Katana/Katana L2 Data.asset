@@ -17,6 +17,7 @@ MonoBehaviour:
   attackSpeed: 1.2
   armorPenetration: 0
   isMelee: 1
+  weaponLevel: 0
   nextLevelWeapon: {fileID: 1708571933901858056, guid: 293bd3bbda90d8242a5ca1be65bd5577, type: 3}
   projectileSpeed: 0
   projectileRange: 0
@@ -28,3 +29,6 @@ MonoBehaviour:
   areaDamage: 0
   meleeRange: 1.25
   meleeAnimationTime: 0.25
+  weaponName: Katana Level 2
+  weaponDescription: Attack speed and damage increased
+  weaponSprite: {fileID: 0}

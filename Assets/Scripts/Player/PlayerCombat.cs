@@ -22,13 +22,14 @@ namespace Player
             playerInventory = GetComponent<PlayerInventory>();
             maxHealth = playerData.CurrentHealth;
             weaponIndex = 0;
-            SpawnWeapon(playerData.StartingWeapon, weaponIndex);
+            SpawnWeapon(playerData.StartingWeapon);
         }
 
-        private void SpawnWeapon(WeaponController weaponController, int index)
+        public void SpawnWeapon(WeaponController weaponController)
         {
             Instantiate(weaponController, transform.position, Quaternion.identity, transform);
-            playerInventory.AddWeapon(weaponController, index);
+            playerInventory.AddWeapon(weaponController, weaponIndex);
+            weaponIndex++;
         }
 
         private void FixedUpdate()

@@ -17,6 +17,7 @@ MonoBehaviour:
   attackSpeed: 0.5
   armorPenetration: 0
   isMelee: 0
+  weaponLevel: 0
   nextLevelWeapon: {fileID: 4168609568882679469, guid: 171314e41d0dc5f4b8999cbf542caab9, type: 3}
   projectileSpeed: 4
   projectileRange: 5
@@ -25,5 +26,9 @@ MonoBehaviour:
   numberOfProjectiles: 0
   numberOfBounces: 0
   areaRadius: 0
+  areaDamage: 0
   meleeRange: 0
   meleeAnimationTime: 0
+  weaponName: Laser Revolver
+  weaponDescription: Shhots single bullet to an enemy in range
+  weaponSprite: {fileID: 0}

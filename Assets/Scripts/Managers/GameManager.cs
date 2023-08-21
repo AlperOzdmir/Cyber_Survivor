@@ -23,6 +23,8 @@ namespace Managers
         public TextMeshProUGUI strengthText;
         
         private bool isLevelingUp;
+        
+        public GameObject playerObject;
 
         private float timer;
 
@@ -107,13 +109,14 @@ namespace Managers
         
         private void OpenLevelUpMenu()
         {
+            playerObject.SendMessage("RemoveApplyUpgradeOptions");
             SetGameState(GameState.LevelUpMenu);
             isLevelingUp = true;
             levelUpMenuUI.SetActive(true);
             gamePlayUI.SetActive(false);
         }
         
-        private void CloseLevelUpMenu()
+        public void CloseLevelUpMenu()
         {
             SetGameState(GameState.InGame);
             isLevelingUp = false;

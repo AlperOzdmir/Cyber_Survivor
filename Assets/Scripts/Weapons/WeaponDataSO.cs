@@ -12,6 +12,7 @@ namespace Weapons
         public float attackSpeed;
         public float armorPenetration;
         public bool isMelee;
+        public int weaponLevel;
         public WeaponController nextLevelWeapon;
         
         [Header("Projectile Related")]
@@ -29,5 +30,10 @@ namespace Weapons
         [Header("Melee Related")]
         public float meleeRange;
         public float meleeAnimationTime;
+        
+        [Header("Weapon Info")]
+        public string weaponName;
+        public string weaponDescription;
+        public Sprite weaponSprite;
     }
 }

@@ -17,6 +17,7 @@ MonoBehaviour:
   attackSpeed: 0.7
   armorPenetration: 0
   isMelee: 0
+  weaponLevel: 0
   nextLevelWeapon: {fileID: 4168609568882679469, guid: 4153af835d1f737478c56fdb4b400904, type: 3}
   projectileSpeed: 4
   projectileRange: 5
@@ -28,3 +29,6 @@ MonoBehaviour:
   areaDamage: 0
   meleeRange: 0
   meleeAnimationTime: 0
+  weaponName: Laser Revolver Level 2
+  weaponDescription: Attack speed and damage increased
+  weaponSprite: {fileID: 0}
