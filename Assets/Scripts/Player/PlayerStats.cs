@@ -16,7 +16,7 @@ namespace Player
         private float currentCooldownReduction;
         private int currentLevel;
         private float currentMagnet;
-        private WeaponController startingWeapon;
+        private GameObject startingWeapon;
 
         private void Awake()
         {
@@ -139,7 +139,7 @@ namespace Player
             }
         }
         
-        public WeaponController StartingWeapon
+        public GameObject StartingWeapon
         {
             get => startingWeapon;
             set

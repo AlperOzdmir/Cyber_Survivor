@@ -61,11 +61,11 @@ namespace Player
     
         public void UpgradeWeapon(int weaponIndex)
         {
-            var newWeapon = Instantiate(weapons[weaponIndex].weaponData.nextLevelWeapon, transform.position, Quaternion.identity, transform);
-            RemoveWeapon(weapons[weaponIndex]);
-            Destroy(weapons[weaponIndex].gameObject);
-            AddWeapon(newWeapon, weaponIndex);
-            weaponLevels[weaponIndex] = newWeapon.weaponData.weaponLevel;
+            var weapon = weapons[weaponIndex];
+            var upgradedWeapon = Instantiate(weapon.weaponData.nextLevelWeapon, transform.position, Quaternion.identity, transform);
+            AddWeapon(upgradedWeapon.GetComponent<WeaponController>(), weaponIndex);
+            Destroy(weapon.gameObject);
+            weaponLevels[weaponIndex] = upgradedWeapon.GetComponent<WeaponController>().weaponData.weaponLevel;
             
             if (GameManager.Instance != null &&
                 GameManager.Instance.GetGameState() == GameManager.GameState.LevelUpMenu)
@@ -98,7 +98,7 @@ namespace Player
 
                     if (newWeapon)
                     {
-                        upgradeOption.upgradeButton.onClick.AddListener(() => player.SpawnWeapon(weaponUpgrade.weaponObject));
+                        upgradeOption.upgradeButton.onClick.AddListener(() => player.SpawnWeapon(weaponUpgrade.weaponObject.gameObject));
                         upgradeOption.upgradeDescription.text = weaponUpgrade.weaponData.weaponDescription;
                         upgradeOption.upgradeName.text = weaponUpgrade.weaponData.weaponName;
                     }

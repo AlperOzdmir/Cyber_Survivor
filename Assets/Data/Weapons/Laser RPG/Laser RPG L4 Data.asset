@@ -17,7 +17,8 @@ MonoBehaviour:
   attackSpeed: 0.7
   armorPenetration: 0
   isMelee: 0
-  nextLevelWeapon: {fileID: 0}
+  weaponLevel: 4
+  nextLevelWeapon: {fileID: 8511689724323744843, guid: 8be7513d6b9cd994c99c95bc96930a2c, type: 3}
   projectileSpeed: 1.25
   projectileRange: 5
   projectileLifetime: 4
@@ -28,3 +29,6 @@ MonoBehaviour:
   areaDamage: 30
   meleeRange: 0
   meleeAnimationTime: 0
+  weaponName: 
+  weaponDescription: 
+  weaponSprite: {fileID: 0}

@@ -25,10 +25,10 @@ namespace Player
             SpawnWeapon(playerData.StartingWeapon);
         }
 
-        public void SpawnWeapon(WeaponController weaponController)
+        public void SpawnWeapon(GameObject weapon)
         {
-            Instantiate(weaponController, transform.position, Quaternion.identity, transform);
-            playerInventory.AddWeapon(weaponController, weaponIndex);
+            var spawnedWeapon = Instantiate(weapon, transform.position, Quaternion.identity, transform);
+            playerInventory.AddWeapon(spawnedWeapon.GetComponent<WeaponController>(), weaponIndex);
             weaponIndex++;
         }
 

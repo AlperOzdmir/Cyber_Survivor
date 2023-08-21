@@ -13,6 +13,6 @@ namespace Player
         public float cooldownReduction;
         public float strength;
         public float magnet;
-        public WeaponController startingWeapon;
+        public GameObject startingWeapon;
     }
 }

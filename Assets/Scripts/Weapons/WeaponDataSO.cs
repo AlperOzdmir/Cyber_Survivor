@@ -13,7 +13,7 @@ namespace Weapons
         public float armorPenetration;
         public bool isMelee;
         public int weaponLevel;
-        public WeaponController nextLevelWeapon;
+        public GameObject nextLevelWeapon;
         
         [Header("Projectile Related")]
         public float projectileSpeed;
