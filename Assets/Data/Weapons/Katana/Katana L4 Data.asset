@@ -29,6 +29,6 @@ MonoBehaviour:
   areaDamage: 0
   meleeRange: 1.25
   meleeAnimationTime: 0.25
-  weaponName: 
-  weaponDescription: 
+  weaponName: Katana Level 4
+  weaponDescription: Attack speed and damage increased
   weaponSprite: {fileID: 0}

@@ -29,6 +29,6 @@ MonoBehaviour:
   areaDamage: 0
   meleeRange: 0
   meleeAnimationTime: 0
-  weaponName: 
-  weaponDescription: 
+  weaponName: Laser Revolver Level 3
+  weaponDescription: Attack speed and damage increased
   weaponSprite: {fileID: 0}

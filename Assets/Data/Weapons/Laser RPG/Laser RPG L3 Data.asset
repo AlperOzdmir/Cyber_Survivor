@@ -29,6 +29,6 @@ MonoBehaviour:
   areaDamage: 30
   meleeRange: 0
   meleeAnimationTime: 0
-  weaponName: 
-  weaponDescription: 
+  weaponName: Laser RPG Level 3
+  weaponDescription: Area radius and attack speed increased
   weaponSprite: {fileID: 0}

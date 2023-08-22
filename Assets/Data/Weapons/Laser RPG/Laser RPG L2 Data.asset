@@ -30,5 +30,5 @@ MonoBehaviour:
   meleeRange: 0
   meleeAnimationTime: 0
   weaponName: Laser RPG Level 2
-  weaponDescription: Area radius increased
+  weaponDescription: Area radius and attack speed increased
   weaponSprite: {fileID: 0}

@@ -25,6 +25,7 @@ namespace Player
         [System.Serializable]
         public class WeaponUpgrade
         {
+            public int weaponUpgradeIndex;
             public WeaponDataSO weaponData;
             public WeaponController weaponObject;
         }
@@ -59,13 +60,14 @@ namespace Player
             weaponLevels[weaponIndex] = 0;
         }
     
-        public void UpgradeWeapon(int weaponIndex)
+        public void UpgradeWeapon(int weaponIndex, int upgradeIndex)
         {
             var weapon = weapons[weaponIndex];
             var upgradedWeapon = Instantiate(weapon.weaponData.nextLevelWeapon, transform.position, Quaternion.identity, transform);
             AddWeapon(upgradedWeapon.GetComponent<WeaponController>(), weaponIndex);
             Destroy(weapon.gameObject);
             weaponLevels[weaponIndex] = upgradedWeapon.GetComponent<WeaponController>().weaponData.weaponLevel;
+            weaponUpgrades[upgradeIndex].weaponData = upgradedWeapon.GetComponent<WeaponController>().weaponData;
             
             if (GameManager.Instance != null &&
                 GameManager.Instance.GetGameState() == GameManager.GameState.LevelUpMenu)
@@ -76,18 +78,26 @@ namespace Player
 
         private void ApplyUpgradeOptions()
         {
+            List<WeaponUpgrade> availableWeaponUpgrades = new List<WeaponUpgrade>(weaponUpgrades);
             foreach (var upgradeOption in upgradeUIs)
             {
-                WeaponUpgrade weaponUpgrade = weaponUpgrades[Random.Range(0, weaponUpgrades.Count)];
+                WeaponUpgrade weaponUpgrade = availableWeaponUpgrades[Random.Range(0, availableWeaponUpgrades.Count)];
+                availableWeaponUpgrades.Remove(weaponUpgrade);
                 if (weaponUpgrade != null)
                 {
+                    EnableUpgradeUI(upgradeOption);
                     bool newWeapon = false;
                     for (int i = 0; i < weapons.Count; i++)
                     {
                         if (weapons[i] != null && weapons[i].weaponData == weaponUpgrade.weaponData)
                         {
                             newWeapon = false;
-                            upgradeOption.upgradeButton.onClick.AddListener(() => UpgradeWeapon(i));
+                            if (!weaponUpgrade.weaponData.nextLevelWeapon)
+                            {
+                                DisableUpgradeUI(upgradeOption);
+                                break;
+                            }
+                            upgradeOption.upgradeButton.onClick.AddListener(() => UpgradeWeapon(i, weaponUpgrade.weaponUpgradeIndex));
                             upgradeOption.upgradeDescription.text = "Upgrade your " + weaponUpgrade.weaponData
                                 .nextLevelWeapon.GetComponent<WeaponController>().weaponData.weaponDescription;
                             upgradeOption.upgradeName.text = weaponUpgrade.weaponData.nextLevelWeapon.GetComponent<WeaponController>().weaponData.weaponName;
@@ -112,6 +122,7 @@ namespace Player
             foreach (var upgradeOption in upgradeUIs)
             {
                 upgradeOption.upgradeButton.onClick.RemoveAllListeners();
+                DisableUpgradeUI(upgradeOption);
             }
         }
         
@@ -119,6 +130,16 @@ namespace Player
         {
             RemoveUpgradeOptions();
             ApplyUpgradeOptions();
+        }
+
+        private void DisableUpgradeUI(UpgradeUI upgradeUI)
+        {
+            upgradeUI.upgradeDescription.transform.parent.gameObject.SetActive(false);
+        }
+        
+        private void EnableUpgradeUI(UpgradeUI upgradeUI)
+        {
+            upgradeUI.upgradeDescription.transform.parent.gameObject.SetActive(true);
         }
     }
 }
