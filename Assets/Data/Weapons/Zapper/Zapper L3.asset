@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f7fded833371f4ca39c7ba23210705, type: 3}
+  m_Name: Zapper L3
+  m_EditorClassIdentifier: 
+  weaponPrefab: {fileID: 6920885802791972314, guid: 00b4bc57de915f74f87b2c30a628836b, type: 3}
+  damage: 14
+  attackSpeed: 0.55
+  armorPenetration: 0
+  isMelee: 1
+  weaponLevel: 1
+  nextLevelWeapon: {fileID: 6250361349957814269, guid: dedfec12348a48f43ad3920ea0e1f222, type: 3}
+  projectileSpeed: 0
+  projectileRange: 2.5
+  projectileLifetime: 0
+  knockbackPower: 0
+  numberOfProjectiles: 0
+  numberOfBounces: 5
+  areaRadius: 0
+  areaDamage: 0
+  meleeRange: 0.75
+  meleeAnimationTime: 0.2
+  weaponName: Zapper Lvel 3
+  weaponDescription: Number of bounces and attack damage increased
+  weaponSprite: {fileID: 0}

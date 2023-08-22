@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f7fded833371f4ca39c7ba23210705, type: 3}
+  m_Name: Zapper L1
+  m_EditorClassIdentifier: 
+  weaponPrefab: {fileID: 6920885802791972314, guid: 3ba36dfcb6b98444aa0693dd2bf0e298, type: 3}
+  damage: 10
+  attackSpeed: 0.35
+  armorPenetration: 0
+  isMelee: 1
+  weaponLevel: 1
+  nextLevelWeapon: {fileID: 6250361349957814269, guid: d5e86ec42ad08b54eab630f83decb130, type: 3}
+  projectileSpeed: 0
+  projectileRange: 2.5
+  projectileLifetime: 0
+  knockbackPower: 0
+  numberOfProjectiles: 0
+  numberOfBounces: 3
+  areaRadius: 0
+  areaDamage: 0
+  meleeRange: 0.75
+  meleeAnimationTime: 0.2
+  weaponName: Zapper
+  weaponDescription: Zaps enemies in range
+  weaponSprite: {fileID: 0}
