@@ -40,17 +40,25 @@ namespace Mobs
             {
                 return;
             }
-            foreach (var tempPlayer in spawnManager.players)
+            if (spawnManager.players.Count == 1)
             {
-                playerPosition = tempPlayer.transform.position;
-                distanceToPlayer = (transform.position - playerPosition).magnitude;
-                if (distanceToPlayer < shortestDistance)
-                {
-                    shortestDistance = distanceToPlayer;
-                    targetPlayerPosition = playerPosition;
-                }
+                targetPlayerPosition = spawnManager.players[0].transform.position;
+                transform.position = Vector2.MoveTowards(transform.position, targetPlayerPosition, 1f * mobData.movementSpeed * Time.deltaTime);
             }
-            transform.position = Vector2.MoveTowards(transform.position, targetPlayerPosition, 1f * mobData.movementSpeed * Time.deltaTime);
+            else
+            {
+                foreach (var tempPlayer in spawnManager.players)
+                {
+                    playerPosition = tempPlayer.transform.position;
+                    distanceToPlayer = (transform.position - playerPosition).magnitude;
+                    if (distanceToPlayer < shortestDistance)
+                    {
+                        shortestDistance = distanceToPlayer;
+                        targetPlayerPosition = playerPosition;
+                    }
+                }
+                transform.position = Vector2.MoveTowards(transform.position, targetPlayerPosition, 1f * mobData.movementSpeed * Time.deltaTime);   
+            }
         }
 
         private void OnCollisionStay2D(Collision2D other)
